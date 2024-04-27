@@ -4,15 +4,6 @@
 			Sistema de ventas 
 		</div>
 		<figure class="full-width" style="height: 77px;">
-			<div class="navLateral-body-cl">
-				<?php
-                    if(is_file("./app/views/fotos/".$_SESSION['foto'])){
-                        echo '<img class="is-rounded img-responsive" src="'.APP_URL.'app/views/fotos/'.$_SESSION['foto'].'">';
-                    }else{
-                        echo '<img class="is-rounded img-responsive" src="'.APP_URL.'app/views/fotos/default.png">';
-                    }
-                ?>
-			</div>
 			<figcaption class="navLateral-body-cr">
 				<span>
 					<?php echo $_SESSION['nombre']; ?><br>
@@ -21,7 +12,7 @@
 			</figcaption>
 		</figure>
 		<div class="full-width tittles navLateral-body-tittle-menu has-text-centered is-uppercase">
-			<i class="fas fa-th-large fa-fw"></i> &nbsp; <?php echo APP_NAME; ?>
+			<i class="fas fa-th-large fa-fw"></i> &nbsp;
 		</div>
 		<nav class="full-width">
 			<ul class="full-width list-unstyle menu-principal">
@@ -353,16 +344,6 @@
 								</div>
 								<div class="navLateral-body-cr">
 									Mi cuenta
-								</div>
-							</a>
-						</li>
-						<li class="full-width">
-							<a href="<?php echo APP_URL."userPhoto/".$_SESSION['id']."/"; ?>" class="full-width">
-								<div class="navLateral-body-cl">
-									<i class="fas fa-camera"></i>
-								</div>
-								<div class="navLateral-body-cr">
-									Mi foto
 								</div>
 							</a>
 						</li>
