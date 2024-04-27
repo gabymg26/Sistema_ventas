@@ -23,18 +23,6 @@
 			$datos=$datos->fetch();
 	?>
 
-	<div class="columns is-flex is-justify-content-center">
-    	<figure class="image is-128x128">
-    		<?php
-    			if(is_file("./app/views/fotos/".$datos['usuario_foto'])){
-    				echo '<img class="is-rounded" src="'.APP_URL.'app/views/fotos/'.$datos['usuario_foto'].'">';
-    			}else{
-    				echo '<img class="is-rounded" src="'.APP_URL.'app/views/fotos/default.png">';
-    			}
-    		?>
-		</figure>
-  	</div>
-
 	<h2 class="title has-text-centered"><?php echo $datos['usuario_nombre']." ".$datos['usuario_apellido']; ?></h2>
 
 	<form class="FormularioAjax" action="<?php echo APP_URL; ?>app/ajax/usuarioAjax.php" method="POST" autocomplete="off" >
