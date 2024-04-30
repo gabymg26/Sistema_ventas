@@ -1,6 +1,6 @@
 <div class="container is-fluid">
 	<h1 class="title">Home</h1>
-  	<div class="columns is-flex is-justify-content-center mt-6">
+  	<div class="columns is-flex is-justify-content-center">
   		<h2 class="subtitle">¡Bienvenido <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?>!</h2>
   	</div>
 </div>
