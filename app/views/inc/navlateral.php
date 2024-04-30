@@ -3,16 +3,8 @@
 		<div class="full-width navLateral-body-logo has-text-centered tittles is-uppercase">
 			Sistema de ventas 
 		</div>
-		<figure class="full-width" style="height: 77px;">
-			<figcaption class="navLateral-body-cr">
-				<span>
-					<?php echo $_SESSION['nombre']; ?><br>
-					<small><?php echo $_SESSION['usuario']; ?></small>
-				</span>
-			</figcaption>
-		</figure>
 		<div class="full-width tittles navLateral-body-tittle-menu has-text-centered is-uppercase">
-			<i class="fas fa-th-large fa-fw"></i> &nbsp;
+			<i class="fas fa-th-large fa-fw"></i> &nbsp; <?php echo APP_NAME; ?>
 		</div>
 		<nav class="full-width">
 			<ul class="full-width list-unstyle menu-principal">

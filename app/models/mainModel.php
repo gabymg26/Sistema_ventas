@@ -9,10 +9,10 @@
 
 	class mainModel{
 
-		private $server=DB_SERVER;
-		private $db=DB_NAME;
-		private $user=DB_USER;
-		private $pass=DB_PASS;
+		private $server= 'localhost';
+		private $db='ventas';
+		private $user='root';
+		private $pass='';
 
 
 		/*----------  Funcion conectar a BD  ----------*/
