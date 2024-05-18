@@ -25,8 +25,8 @@ html {
   justify-content: center;
   align-items: center;
   background: #000428;
-  background: -webkit-linear-gradient(to right, #004e92, #000428);
-  background: linear-gradient(to right, #004e92, #000428);
+  background: -webkit-linear-gradient(to right, #b2733e, #000428);
+  background: linear-gradient(to right, #b2733e, #000428);
 }
 
 .main-container > .login,
@@ -102,7 +102,7 @@ html {
 }
 /*=============Estilos barra superior*/
 .navBar {
-  background-color: #3f51b5;
+  background-color: #b2733e;
   height: 45px;
   color: #fff;
   position: relative;
@@ -205,7 +205,7 @@ html {
   color: #fff;
   width: 100%;
   font-size: 25px;
-  background-color: #3f51b5;
+  background-color: #b2733e;
 }
 .navLateral-body-cl,
 .navLateral-body-cr {
@@ -248,7 +248,7 @@ html {
   transition: all 0.3s ease-in-out;
 }
 .menu-principal li a:hover {
-  color: #3f51b5;
+  color: #b2733e;
 }
 .menu-principal li a div.navLateral-body-cl,
 .menu-principal li a div.navLateral-body-cr {
@@ -281,14 +281,14 @@ html {
   border-left: 4px solid transparent;
 }
 .sub-menu-options li a:hover {
-  border-left: 4px solid #3f51b5;
+  border-left: 4px solid #b2733e;
 }
 .btn-subMenu-show {
   background-color: rgba(0, 0, 0, 0.1);
 }
 .btn-subMenu-show .navLateral-body-cl,
 .btn-subMenu-show .navLateral-body-cr {
-  color: #3f51b5;
+  color: #b2733e;
 }
 .btn-subMenu-show + .sub-menu-options {
   height: auto;

@@ -5,11 +5,11 @@ const APP_NAME = "Sistema de Ventas";
 const APP_SESSION_NAME = "POS";
 
 /*----------  Tipos de documentos  ----------*/
-const DOCUMENTOS_USUARIOS = ["DNI", "Cedula", "Licencia", "Pasaporte", "Otro"];
+const DOCUMENTOS_USUARIOS = ["Cédula", "Tarjeta de identidad", "Pasaporte", "Otro"];
 
 
 /*----------  Tipos de unidades de productos  ----------*/
-const PRODUCTO_UNIDAD = ["Unidad", "Libra", "Kilogramo", "Caja", "Paquete", "Lata", "Galon", "Botella", "Tira", "Sobre", "Bolsa", "Saco", "Tarjeta", "Otro"];
+const PRODUCTO_UNIDAD = ["Unidad", "Libra", "Kilogramo", "Caja", "Paquete", "Lata", "Galón", "Botella", "Tira", "Sobre", "Bolsa", "Saco", "Otro"];
 
 /*----------  Configuración de moneda  ----------*/
 const MONEDA_SIMBOLO = "$";

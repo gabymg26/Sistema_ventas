@@ -926,8 +926,8 @@
 		        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
 		            <thead>
 		                <tr>
-		                    <th class="has-text-centered">NRO.</th>
-		                    <th class="has-text-centered">Codigo</th>
+		                    <th class="has-text-centered">NO.</th>
+		                    <th class="has-text-centered">Código</th>
 		                    <th class="has-text-centered">Fecha</th>
 		                    <th class="has-text-centered">Cliente</th>
 		                    <th class="has-text-centered">Vendedor</th>
