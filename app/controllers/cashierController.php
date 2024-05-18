@@ -123,7 +123,7 @@
 				$alerta=[
 					"tipo"=>"limpiar",
 					"titulo"=>"Caja registrada",
-					"texto"=>"La caja ".$nombre." #".$numero." se registro con exito",
+					"texto"=>"La caja ".$nombre." #".$numero." se registró con éxito",
 					"icono"=>"success"
 				];
 			}else{

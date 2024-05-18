@@ -4,7 +4,7 @@
 			Sistema de ventas 
 		</div>
 		<div class="full-width tittles navLateral-body-tittle-menu has-text-centered is-uppercase">
-			<i class="fas fa-th-large fa-fw"></i> &nbsp; <?php echo APP_NAME; ?>
+			<i class="fas fa-th-large fa-fw"></i> &nbsp;
 		</div>
 		<nav class="full-width">
 			<ul class="full-width list-unstyle menu-principal">

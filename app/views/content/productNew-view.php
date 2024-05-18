@@ -52,8 +52,8 @@
 		  	</div>
 		  	<div class="column">
 		    	<div class="control">
-					<label>Modelo</label>
-				  	<input class="input" type="text" name="producto_modelo" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}" maxlength="30" >
+					<label>Proveedor</label>
+				  	<input class="input" type="text" name="producto_proveedor" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}" maxlength="30" >
 				</div>
 		  	</div>
 		  	<div class="column">
@@ -102,8 +102,8 @@
 			</div>
 		</div>
 		<p class="has-text-centered">
-			<button type="reset" class="button is-link is-light is-rounded"><i class="fas fa-paint-roller"></i> &nbsp; Limpiar</button>
-			<button type="submit" class="button is-info is-rounded"><i class="far fa-save"></i> &nbsp; Guardar</button>
+			<button type="reset" class="button is-warning is-light is-rounded"><i class="fas fa-paint-roller"></i> &nbsp; Limpiar</button>
+			<button type="submit" class="button is-success is-rounded"><i class="far fa-save"></i> &nbsp; Guardar</button>
 		</p>
 		<p class="has-text-centered pt-6">
             <small>Los campos marcados con <?php echo CAMPO_OBLIGATORIO; ?> son obligatorios</small>

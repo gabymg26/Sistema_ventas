@@ -20,7 +20,7 @@
             <form class="pt-6 pb-6" id="sale-barcode-form" autocomplete="off">
                 <div class="columns">
                     <div class="column is-one-quarter">
-                        <button type="button" class="button is-link is-light js-modal-trigger" data-target="modal-js-product" ><i class="fas fa-search"></i> &nbsp; Buscar producto</button>
+                        <button type="button" class="button is-warning is-light js-modal-trigger" data-target="modal-js-product" ><i class="fas fa-search"></i> &nbsp; Buscar producto</button>
                     </div>
                     <div class="column">
                         <div class="field is-grouped">
@@ -28,7 +28,7 @@
                                 <input class="input" type="text" pattern="[a-zA-Z0-9- ]{1,70}" maxlength="70"  autofocus="autofocus" placeholder="Código de barras" id="sale-barcode-input" >
                             </p>
                             <a class="control">
-                                <button type="submit" class="button is-info">
+                                <button type="submit" class="button is-success">
                                     <i class="far fa-check-circle"></i> &nbsp; Agregar producto
                                 </button>
                             </a>
@@ -48,20 +48,20 @@
 
                 if(isset($_SESSION['venta_codigo_factura']) && $_SESSION['venta_codigo_factura']!=""){
             ?>
-            <div class="notification is-info is-light mb-2 mt-2">
+            <div class="notification is-success is-light mb-2 mt-2">
                 <h4 class="has-text-centered has-text-weight-bold">Venta realizada</h4>
                 <p class="has-text-centered mb-2">La venta se realizó con éxito. ¿Que desea hacer a continuación? </p>
                 <br>
                 <div class="container">
                     <div class="columns">
                         <div class="column has-text-centered">
-                            <button type="button" class="button is-link is-light" onclick="print_ticket('<?php echo APP_URL."app/pdf/ticket.php?code=".$_SESSION['venta_codigo_factura']; ?>')" >
+                            <button type="button" class="button is-warning is-light" onclick="print_ticket('<?php echo APP_URL."app/pdf/ticket.php?code=".$_SESSION['venta_codigo_factura']; ?>')" >
                                 <i class="fas fa-receipt fa-2x"></i> &nbsp;
                                 Imprimir ticket de venta
                             </buttona>
                         </div>
                         <div class="column has-text-centered">
-                            <button type="button" class="button is-link is-light" onclick="print_invoice('<?php echo APP_URL."app/pdf/invoice.php?code=".$_SESSION['venta_codigo_factura']; ?>')" >
+                            <button type="button" class="button is-warning is-light" onclick="print_invoice('<?php echo APP_URL."app/pdf/invoice.php?code=".$_SESSION['venta_codigo_factura']; ?>')" >
                                 <i class="fas fa-file-invoice-dollar fa-2x"></i> &nbsp;
                                 Imprimir factura de venta
                             </button>
@@ -231,7 +231,7 @@
                         <input class="input" type="text" readonly id="venta_cliente" value="<?php echo $_SESSION['datos_cliente_venta']['cliente_nombre']." ".$_SESSION['datos_cliente_venta']['cliente_apellido']; ?>" >
                     </div>
                     <div class="control">
-                        <a class="button is-info js-modal-trigger" data-target="modal-js-client" title="Agregar cliente" id="btn_add_client" >
+                        <a class="button is-success js-modal-trigger" data-target="modal-js-client" title="Agregar cliente" id="btn_add_client" >
                             <i class="fas fa-user-plus fa-fw"></i>
                         </a>
                     </div>
@@ -252,7 +252,7 @@
 
                 <?php if($_SESSION['venta_total']>0){ ?>
                 <p class="has-text-centered">
-                    <button type="submit" class="button is-info is-rounded"><i class="far fa-save"></i> &nbsp; Guardar venta</button>
+                    <button type="submit" class="button is-success is-rounded"><i class="far fa-save"></i> &nbsp; Guardar venta</button>
                 </p>
                 <?php } ?>
                 <p class="has-text-centered pt-6">
@@ -283,14 +283,14 @@
         </header>
         <section class="modal-card-body">
             <div class="field mt-6 mb-6">
-                <label class="label">Nombre, marca, modelo</label>
+                <label class="label">Nombre, marca, proveedor</label>
                 <div class="control">
                     <input class="input" type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" name="input_codigo" id="input_codigo" maxlength="30" >
                 </div>
             </div>
             <div class="container" id="tabla_productos"></div>
             <p class="has-text-centered">
-                <button type="button" class="button is-link is-light" onclick="buscar_codigo()" ><i class="fas fa-search"></i> &nbsp; Buscar</button>
+                <button type="button" class="button is-warning is-light" onclick="buscar_codigo()" ><i class="fas fa-search"></i> &nbsp; Buscar</button>
             </p>
         </section>
     </div>
@@ -313,7 +313,7 @@
             </div>
             <div class="container" id="tabla_clientes"></div>
             <p class="has-text-centered">
-                <button type="button" class="button is-link is-light" onclick="buscar_cliente()" ><i class="fas fa-search"></i> &nbsp; Buscar</button>
+                <button type="button" class="button is-warning is-light" onclick="buscar_cliente()" ><i class="fas fa-search"></i> &nbsp; Buscar</button>
             </p>
         </section>
     </div>
@@ -393,7 +393,7 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Ocurrió un error inesperado',
-                text: 'Debes de introducir el Nombre, Marca o Modelo del producto',
+                text: 'Debes de introducir el Nombre, Marca o Proveedor del producto',
                 confirmButtonText: 'Aceptar'
             });
         }
@@ -418,7 +418,7 @@
 
             Swal.fire({
                 title: '¿Estás seguro?',
-                text: "Desea actualizar la cantidad de productos",
+                text: "¿Desea actualizar la cantidad de productos?",
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -480,7 +480,7 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Ocurrió un error inesperado',
-                text: 'Debes de introducir el Numero de documento, Nombre, Apellido o Teléfono del cliente',
+                text: 'Debes de introducir el Número de documento, Nombre, Apellido o Teléfono del cliente',
                 confirmButtonText: 'Aceptar'
             });
         }

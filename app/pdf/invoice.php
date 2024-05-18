@@ -28,10 +28,10 @@
 		$pdf = new PDF_Code128('P','mm','Letter');
 		$pdf->SetMargins(17,17,17);
 		$pdf->AddPage();
-		$pdf->Image(APP_URL.'app/views/img/logo.png',165,12,35,35,'PNG');
+	
 
 		$pdf->SetFont('Arial','B',16);
-		$pdf->SetTextColor(32,100,210);
+		$pdf->SetTextColor(178,115,62);
 		$pdf->Cell(150,10,iconv("UTF-8", "ISO-8859-1",strtoupper($datos_empresa['empresa_nombre'])),0,0,'L');
 
 		$pdf->Ln(9);
@@ -60,7 +60,7 @@
 		$pdf->Cell(116,7,iconv("UTF-8", "ISO-8859-1",date("d/m/Y", strtotime($datos_venta['venta_fecha']))." ".$datos_venta['venta_hora']),0,0,'L');
 		$pdf->SetFont('Arial','B',10);
 		$pdf->SetTextColor(39,39,51);
-		$pdf->Cell(35,7,iconv("UTF-8", "ISO-8859-1",strtoupper('Factura Nro.')),0,0,'C');
+		$pdf->Cell(35,7,iconv("UTF-8", "ISO-8859-1",strtoupper('Factura No.')),0,0,'C');
 
 		$pdf->Ln(7);
 
@@ -122,8 +122,8 @@
 
 		$pdf->Ln(9);
 
-		$pdf->SetFillColor(23,83,201);
-		$pdf->SetDrawColor(23,83,201);
+		$pdf->SetFillColor(178,115,62);
+		$pdf->SetDrawColor(178,115,62);
 		$pdf->SetTextColor(255,255,255);
 		$pdf->Cell(100,8,iconv("UTF-8", "ISO-8859-1",'Descripción'),1,0,'C',true);
 		$pdf->Cell(15,8,iconv("UTF-8", "ISO-8859-1",'Cant.'),1,0,'C',true);

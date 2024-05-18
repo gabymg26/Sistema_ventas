@@ -17,7 +17,7 @@
 		    $stock=$this->limpiarCadena($_POST['producto_stock']);
 
 		    $marca=$this->limpiarCadena($_POST['producto_marca']);
-		    $modelo=$this->limpiarCadena($_POST['producto_modelo']);
+		    $proveedor=$this->limpiarCadena($_POST['producto_proveedor']);
 		    $unidad=$this->limpiarCadena($_POST['producto_unidad']);
 		    $categoria=$this->limpiarCadena($_POST['producto_categoria']);
 
@@ -102,12 +102,12 @@
 			    }
 		    }
 
-		    if($modelo!=""){
-		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}",$modelo)){
+		    if($proveedor!=""){
+		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}",$proveedor)){
 			    	$alerta=[
 						"tipo"=>"simple",
 						"titulo"=>"Ocurrió un error inesperado",
-						"texto"=>"El MODELO no coincide con el formato solicitado",
+						"texto"=>"El proveedor no coincide con el formato solicitado",
 						"icono"=>"error"
 					];
 					return json_encode($alerta);
@@ -328,9 +328,9 @@
 					"campo_valor"=>$marca
 				],
 				[
-					"campo_nombre"=>"producto_modelo",
-					"campo_marcador"=>":Modelo",
-					"campo_valor"=>$modelo
+					"campo_nombre"=>"producto_proveedor",
+					"campo_marcador"=>":Proveedor",
+					"campo_valor"=>$proveedor
 				],
 				[
 					"campo_nombre"=>"producto_estado",
@@ -355,7 +355,7 @@
 				$alerta=[
 					"tipo"=>"limpiar",
 					"titulo"=>"Producto registrado",
-					"texto"=>"El producto ".$nombre." se registro con exito",
+					"texto"=>"El producto ".$nombre." se registró con éxito",
 					"icono"=>"success"
 				];
 			}else{
@@ -397,13 +397,13 @@
 			$pagina = (isset($pagina) && $pagina>0) ? (int) $pagina : 1;
 			$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 
-			$campos="producto.producto_id,producto.producto_codigo,producto.producto_nombre,producto_stock_total,producto.producto_precio_venta,producto.producto_foto,categoria.categoria_nombre";
+			$campos="producto.producto_id,producto.producto_codigo,producto.producto_nombre,producto_stock_total,producto.producto_precio_venta,producto.producto_foto,categoria.categoria_nombre,producto.producto_proveedor";
 
 			if(isset($busqueda) && $busqueda!=""){
 
-				$consulta_datos="SELECT $campos FROM producto INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%' OR producto_marca LIKE '%$busqueda%' OR producto_modelo LIKE '%$busqueda%' ORDER BY producto_nombre ASC LIMIT $inicio,$registros";
+				$consulta_datos="SELECT $campos FROM producto INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%' OR producto_marca LIKE '%$busqueda%' OR producto_proveedor LIKE '%$busqueda%' ORDER BY producto_nombre ASC LIMIT $inicio,$registros";
 
-				$consulta_total="SELECT COUNT(producto_id) FROM producto WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%' OR producto_marca LIKE '%$busqueda%' OR producto_modelo LIKE '%$busqueda%'";
+				$consulta_total="SELECT COUNT(producto_id) FROM producto WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%' OR producto_marca LIKE '%$busqueda%' OR producto_proveedor LIKE '%$busqueda%'";
 
 			}elseif($categoria>0){
 
@@ -446,10 +446,11 @@
 		                    <div class="content">
 		                        <p>
 		                            <strong>'.$contador.' - '.$rows['producto_nombre'].'</strong><br>
-		                            <strong>CODIGO:</strong> '.$rows['producto_codigo'].', 
+		                            <strong>CÓDIGO:</strong> '.$rows['producto_codigo'].', 
 		                            <strong>PRECIO:</strong> $'.$rows['producto_precio_venta'].', 
 		                            <strong>STOCK:</strong> '.$rows['producto_stock_total'].', 
 		                            <strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].'
+									<strong>PROVEEDOR:</strong> '.$rows['producto_proveedor'].'
 		                        </p>
 		                    </div>
 		                    <div class="has-text-right">
@@ -600,7 +601,7 @@
 		    $stock=$this->limpiarCadena($_POST['producto_stock']);
 
 		    $marca=$this->limpiarCadena($_POST['producto_marca']);
-		    $modelo=$this->limpiarCadena($_POST['producto_modelo']);
+		    $proveedor=$this->limpiarCadena($_POST['producto_proveedor']);
 		    $unidad=$this->limpiarCadena($_POST['producto_unidad']);
 		    $categoria=$this->limpiarCadena($_POST['producto_categoria']);
 
@@ -685,12 +686,12 @@
 			    }
 		    }
 
-		    if($modelo!=""){
-		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}",$modelo)){
+		    if($proveedor!=""){
+		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}",$proveedor)){
 			    	$alerta=[
 						"tipo"=>"simple",
 						"titulo"=>"Ocurrió un error inesperado",
-						"texto"=>"El MODELO no coincide con el formato solicitado",
+						"texto"=>"El proveedor no coincide con el formato solicitado",
 						"icono"=>"error"
 					];
 					return json_encode($alerta);
@@ -843,9 +844,9 @@
 					"campo_valor"=>$marca
 				],
 				[
-					"campo_nombre"=>"producto_modelo",
-					"campo_marcador"=>":Modelo",
-					"campo_valor"=>$modelo
+					"campo_nombre"=>"producto_proveedor",
+					"campo_marcador"=>":Proveedor",
+					"campo_valor"=>$proveedor
 				],
 				[
 					"campo_nombre"=>"categoria_id",

@@ -25,7 +25,7 @@
 		  	</div>
 		  	<div class="column">
 		    	<div class="control">
-					<label>Numero de documento <?php echo CAMPO_OBLIGATORIO; ?></label>
+					<label>Número de documento <?php echo CAMPO_OBLIGATORIO; ?></label>
 				  	<input class="input" type="text" name="cliente_numero_documento" pattern="[a-zA-Z0-9-]{7,30}" maxlength="30" required >
 				</div>
 		  	</div>
@@ -47,19 +47,19 @@
 		<div class="columns">
 		  	<div class="column">
 		    	<div class="control">
-					<label>Estado, provincia o departamento <?php echo CAMPO_OBLIGATORIO; ?></label>
+					<label>Departamento <?php echo CAMPO_OBLIGATORIO; ?></label>
 				  	<input class="input" type="text" name="cliente_provincia" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}" maxlength="30" required >
 				</div>
 		  	</div>
 		  	<div class="column">
 		    	<div class="control">
-					<label>Ciudad o pueblo <?php echo CAMPO_OBLIGATORIO; ?></label>
+					<label>Municipio <?php echo CAMPO_OBLIGATORIO; ?></label>
 				  	<input class="input" type="text" name="cliente_ciudad" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}" maxlength="30" required >
 				</div>
 		  	</div>
 		  	<div class="column">
 		    	<div class="control">
-					<label>Calle o dirección de casa <?php echo CAMPO_OBLIGATORIO; ?></label>
+					<label>Dirección de residencia <?php echo CAMPO_OBLIGATORIO; ?></label>
 				  	<input class="input" type="text" name="cliente_direccion" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{4,70}" maxlength="70" required >
 				</div>
 		  	</div>
@@ -79,8 +79,8 @@
 		  	</div>
 		</div>
 		<p class="has-text-centered">
-			<button type="reset" class="button is-link is-light is-rounded"><i class="fas fa-paint-roller"></i> &nbsp; Limpiar</button>
-			<button type="submit" class="button is-info is-rounded"><i class="far fa-save"></i> &nbsp; Guardar</button>
+			<button type="reset" class="button is-warning is-light is-rounded"><i class="fas fa-paint-roller"></i> &nbsp; Limpiar</button>
+			<button type="submit" class="button is-success is-rounded"><i class="far fa-save"></i> &nbsp; Guardar</button>
 		</p>
 		<p class="has-text-centered pt-6">
             <small>Los campos marcados con <?php echo CAMPO_OBLIGATORIO; ?> son obligatorios</small>

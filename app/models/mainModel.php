@@ -17,7 +17,7 @@
 
 		/*----------  Funcion conectar a BD  ----------*/
 		protected function conectar(){
-			$conexion = new PDO("mysql:host=".$this->server.";port=8000;dbname=".$this->db,$this->user,$this->pass);
+			$conexion = new PDO("mysql:host=".$this->server.";port=3305;dbname=".$this->db,$this->user,$this->pass);
 			$conexion->exec("SET CHARACTER SET utf8");
 			return $conexion;
 		}
