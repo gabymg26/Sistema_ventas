@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3305
--- Tiempo de generación: 19-05-2024 a las 08:02:59
+-- Tiempo de generación: 19-05-2024 a las 22:25:46
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `caja` (
 
 INSERT INTO `caja` (`caja_id`, `caja_numero`, `caja_nombre`, `caja_efectivo`) VALUES
 (1, 1, 'Caja Principal', 77500.00),
-(2, 2, 'Caja 2', 500000.00);
+(2, 2, 'Caja 2', 512500.00);
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,8 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`categoria_id`, `categoria_nombre`, `categoria_ubicacion`) VALUES
-(1, 'Bebidas', 'Pasillo 3');
+(1, 'Bebidas', 'Pasillo 3'),
+(2, 'Grano', 'Pasillo 5');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`cliente_id`, `cliente_tipo_documento`, `cliente_numero_documento`, `cliente_nombre`, `cliente_apellido`, `cliente_provincia`, `cliente_ciudad`, `cliente_direccion`, `cliente_telefono`, `cliente_email`) VALUES
 (1, 'Otro', 'N/A', 'Publico', 'General', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
-(2, 'Cédula', '1105896001', 'Jose', 'Armando', 'Tolima', 'San Antonio', 'Barrio prado 2', '3204001413', 'josero@gmail.com');
+(3, 'Cédula', '6001533', 'Armando', 'Rodriguez', 'Tolima', 'San Antonio', 'Prado 2', '3204001413', 'armado06@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,8 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`producto_id`, `producto_codigo`, `producto_nombre`, `producto_stock_total`, `producto_tipo_unidad`, `producto_precio_compra`, `producto_precio_venta`, `producto_marca`, `producto_estado`, `producto_foto`, `categoria_id`, `proveedor_id`) VALUES
-(1, '111222333', 'Agua', 11, 'Unidad', 2500.00, 2500.00, 'Brisa', 'Habilitado', '', 1, 0);
+(1, '111222333', 'Agua', 6, 'Unidad', 2500.00, 3000.00, 'Brisa', 'Habilitado', '', 1, 2),
+(2, '111231231', 'Arroz', 100, 'Libra', 1500.00, 2000.00, 'Supremo', 'Habilitado', '', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,6 @@ CREATE TABLE `usuario` (
   `usuario_email` varchar(50) NOT NULL,
   `usuario_usuario` varchar(30) NOT NULL,
   `usuario_clave` varchar(535) NOT NULL,
-  `usuario_foto` varchar(200) NOT NULL,
   `caja_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -179,9 +180,9 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`usuario_id`, `usuario_nombre`, `usuario_apellido`, `usuario_email`, `usuario_usuario`, `usuario_clave`, `usuario_foto`, `caja_id`) VALUES
-(1, 'Administrador', 'Principal', '', 'Administrador', '$2y$10$Jgm6xFb5Onz/BMdIkNK2Tur8yg/NYEMb/tdnhoV7kB1BwIG4R05D2', '', 1),
-(2, 'Manuel', 'Rodriguez', 'manejo03@outlook.es', 'Maro', '$2y$10$x/5IuMhAYFXXt97fcQ9LtOpY2gQrti9SrJbxKc7Xpv4cRs7YNDVuq', '', 1);
+INSERT INTO `usuario` (`usuario_id`, `usuario_nombre`, `usuario_apellido`, `usuario_email`, `usuario_usuario`, `usuario_clave`, `caja_id`) VALUES
+(1, 'Administrador', 'Principal', '', 'Administrador', '$2y$10$Jgm6xFb5Onz/BMdIkNK2Tur8yg/NYEMb/tdnhoV7kB1BwIG4R05D2', 1),
+(3, 'Manuel', 'Rodriguez', 'manejo03@outlook.es', 'Maro', '$2y$10$FtNCMUj9VYA.X.TotQWiNeNLFpKbL3C5uK5VmFxii.m5Hi94jBOa2', 1);
 
 -- --------------------------------------------------------
 
@@ -202,6 +203,13 @@ CREATE TABLE `venta` (
   `caja_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`venta_id`, `venta_codigo`, `venta_fecha`, `venta_hora`, `venta_total`, `venta_pagado`, `venta_cambio`, `usuario_id`, `cliente_id`, `caja_id`) VALUES
+(3, 'S7R2H2K9G8-1', '2024-05-19', '02:51 pm', 12500.00, 15000.00, 2500.00, 1, 3, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -218,6 +226,13 @@ CREATE TABLE `venta_detalle` (
   `venta_codigo` varchar(200) NOT NULL,
   `producto_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `venta_detalle`
+--
+
+INSERT INTO `venta_detalle` (`venta_detalle_id`, `venta_detalle_cantidad`, `venta_detalle_precio_compra`, `venta_detalle_precio_venta`, `venta_detalle_total`, `venta_detalle_descripcion`, `venta_codigo`, `producto_id`) VALUES
+(3, 5, 2500.00, 2500.00, 12500.00, 'Agua', 'S7R2H2K9G8-1', 1);
 
 --
 -- Índices para tablas volcadas
@@ -300,13 +315,13 @@ ALTER TABLE `caja`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `categoria_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `categoria_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `cliente_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cliente_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
@@ -318,7 +333,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `producto_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `producto_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -330,19 +345,19 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usuario_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `usuario_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `venta_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `venta_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `venta_detalle`
 --
 ALTER TABLE `venta_detalle`
-  MODIFY `venta_detalle_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `venta_detalle_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
