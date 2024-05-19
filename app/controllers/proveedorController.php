@@ -40,7 +40,7 @@
 
 
 		    # Verificando nombre #
-		    $check_nombre=$this->ejecutarConsulta("SELECT proveedor_nombre FROM proveedor WHERE proveedor_nombre='$nombre'");
+		    $check_nombre=$this->ejecutarConsulta("SELECT proveedor_nombre FROM proveedores WHERE proveedor_nombre='$nombre'");
 		    if($check_nombre->rowCount()>0){
 		    	$alerta=[
 					"tipo"=>"simple",
@@ -69,7 +69,7 @@
 		    # Verificando email #
 		    if($email!=""){
 				if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-					$check_email=$this->ejecutarConsulta("SELECT proveedor_email FROM proveedor WHERE proveedor_email='$email'");
+					$check_email=$this->ejecutarConsulta("SELECT proveedor_email FROM proveedores WHERE proveedor_email='$email'");
 					if($check_email->rowCount()>0){
 						$alerta=[
 							"tipo"=>"simple",
@@ -112,7 +112,7 @@
 				]
 			];
 
-			$registrar_proveedor=$this->guardarDatos("proveedor",$proveedor_datos_reg);
+			$registrar_proveedor=$this->guardarDatos("proveedores",$proveedor_datos_reg);
 
 			if($registrar_proveedor->rowCount()==1){
 				$alerta=[
@@ -151,15 +151,15 @@
 
 			if(isset($busqueda) && $busqueda!=""){
 
-				$consulta_datos="SELECT * FROM proveedor WHERE proveedor_nombre LIKE '%$busqueda%' OR proveedor_email LIKE '%$busqueda%' ORDER BY proveedor_nombre ASC LIMIT $inicio,$registros";
+				$consulta_datos="SELECT * FROM proveedores WHERE proveedor_nombre LIKE '%$busqueda%' OR proveedor_telefono LIKE '%$busqueda' OR proveedor_email LIKE '%$busqueda%'  ORDER BY proveedor_nombre ASC LIMIT $inicio,$registros";
 
-				$consulta_total="SELECT COUNT(proveedor_id) FROM proveedor WHERE proveedor_nombre LIKE '%$busqueda%' OR proveedor_email LIKE '%$busqueda%'";
+				$consulta_total="SELECT COUNT(proveedor_id) FROM proveedores WHERE proveedor_nombre LIKE '%$busqueda%' OR proveedor_telefono LIKE '%$busqueda' OR proveedor_email LIKE '%$busqueda%' ";
 
 			}else{
 
-				$consulta_datos="SELECT * FROM proveedor ORDER BY proveedor_nombre ASC LIMIT $inicio,$registros";
+				$consulta_datos="SELECT * FROM proveedores ORDER BY proveedor_nombre ASC LIMIT $inicio,$registros";
 
-				$consulta_total="SELECT COUNT(proveedor_id) FROM proveedor";
+				$consulta_total="SELECT COUNT(proveedor_id) FROM proveedores";
 
 			}
 
@@ -171,16 +171,15 @@
 
 			$numeroPaginas =ceil($total/$registros);
 
-			$tabla.='
+			$tabla.= '
 		        <div class="table-container">
 		        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
 		            <thead>
 		                <tr>
 		                    <th class="has-text-centered">No.</th>
 		                    <th class="has-text-centered">Nombre</th>
-		                    <th class="has-text-centered">Teléfono</th>
-							          <th class="has-text-centered">Email</th>
-		                    <th class="has-text-centered">Productos</th>
+							<th class="has-text-centered">Email</th>
+							<th class="has-text-centered">Teléfono</th>
 		                    <th class="has-text-centered">Actualizar</th>
 		                    <th class="has-text-centered">Eliminar</th>
 		                </tr>
@@ -196,12 +195,8 @@
 						<tr class="has-text-centered" >
 							<td>'.$contador.'</td>
 							<td>'.$rows['proveedor_nombre'].'</td>
-							<td>'.$rows['proveedor_email'].'</td>
-							<td>
-			                    <a href="'.APP_URL.'productCategory/'.$rows['proveedor_id'].'/" class="button is-info is-rounded is-small">
-			                    	<i class="fas fa-boxes fa-fw"></i>
-			                    </a>
-			                </td>
+							<td>'.$rows['proveedor_email']. '</td>
+							<td>'.$rows['proveedor_telefono'] . '</td>
 			                <td>
 			                    <a href="'.APP_URL.'proveedorUpdate/'.$rows['proveedor_id'].'/" class="button is-success is-rounded is-small">
 			                    	<i class="fas fa-sync fa-fw"></i>
@@ -265,7 +260,7 @@
 			$id=$this->limpiarCadena($_POST['proveedor_id']);
 
 			# Verificando proveedor #
-		    $datos=$this->ejecutarConsulta("SELECT * FROM proveedor WHERE proveedor_id='$id'");
+		    $datos=$this->ejecutarConsulta("SELECT * FROM proveedores WHERE proveedor_id='$id'");
 		    if($datos->rowCount()<=0){
 		        $alerta=[
 					"tipo"=>"simple",
@@ -322,7 +317,7 @@
 			$id=$this->limpiarCadena($_POST['proveedor_id']);
 
 			# Verificando proveedor #
-		    $datos=$this->ejecutarConsulta("SELECT * FROM proveedor WHERE proveedor_id='$id'");
+		    $datos=$this->ejecutarConsulta("SELECT * FROM proveedores WHERE proveedor_id='$id'");
 		    if($datos->rowCount()<=0){
 		        $alerta=[
 					"tipo"=>"simple",
@@ -395,7 +390,7 @@
 		    # Verificando email #
 		    if($email!=""){
 				if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-					$check_email=$this->ejecutarConsulta("SELECT proveedor_email FROM proveedor WHERE proveedor_email='$email'");
+					$check_email=$this->ejecutarConsulta("SELECT proveedor_email FROM proveedores WHERE proveedor_email='$email'");
 					if($check_email->rowCount()>0){
 						$alerta=[
 							"tipo"=>"simple",
