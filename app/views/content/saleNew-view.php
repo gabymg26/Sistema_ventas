@@ -283,7 +283,7 @@
         </header>
         <section class="modal-card-body">
             <div class="field mt-6 mb-6">
-                <label class="label">Nombre, marca, proveedor</label>
+                <label class="label">Nombre o marca</label>
                 <div class="control">
                     <input class="input" type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" name="input_codigo" id="input_codigo" maxlength="30" >
                 </div>

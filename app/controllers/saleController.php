@@ -20,14 +20,14 @@
 					 </div>
 				    <div class="message-body has-text-centered">
 				    	<i class="fas fa-exclamation-triangle fa-2x"></i><br>
-						Debes de introducir el Nombre, Marca o Modelo del producto
+						Debes de introducir el Nombre o Marca
 				    </div>
 				</article>';
 				exit();
             }
 
             /*== Seleccionando productos en la DB ==*/
-            $datos_productos=$this->ejecutarConsulta("SELECT * FROM producto WHERE (producto_nombre LIKE '%$producto%' OR producto_marca LIKE '%$producto%' OR producto_modelo LIKE '%$producto%') ORDER BY producto_nombre ASC");
+            $datos_productos=$this->ejecutarConsulta("SELECT * FROM producto WHERE (producto_nombre LIKE '%$producto%' OR producto_marca LIKE '%$producto%') ORDER BY producto_nombre ASC");
 
             if($datos_productos->rowCount()>=1){
 
