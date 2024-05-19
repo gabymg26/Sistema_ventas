@@ -138,11 +138,11 @@
 	<div class="columns pb-6 pt-6">
 		<p class="has-text-centered full-width">
 			<?php
-			echo '<button type="button" class="button is-link is-light is-medium" onclick="print_invoice(\''.APP_URL.'app/pdf/invoice.php?code='.$datos_venta['venta_codigo'].'\')" title="Imprimir factura Nro. '.$datos_venta['venta_id'].'" >
+			echo '<button type="button" class="button is-warning is-light is-medium" onclick="print_invoice(\''.APP_URL.'app/pdf/invoice.php?code='.$datos_venta['venta_codigo'].'\')" title="Imprimir factura Nro. '.$datos_venta['venta_id'].'" >
 			<i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Imprimir factura
 			</button> &nbsp;&nbsp; 
 
-			<button type="button" class="button is-link is-light is-medium" onclick="print_ticket(\''.APP_URL.'app/pdf/ticket.php?code='.$datos_venta['venta_codigo'].'\')" title="Imprimir ticket Nro. '.$datos_venta['venta_id'].'" ><i class="fas fa-receipt fa-fw"></i> &nbsp; Imprimir ticket</button>';
+			<button type="button" class="button is-warning is-light is-medium" onclick="print_ticket(\''.APP_URL.'app/pdf/ticket.php?code='.$datos_venta['venta_codigo'].'\')" title="Imprimir ticket Nro. '.$datos_venta['venta_id'].'" ><i class="fas fa-receipt fa-fw"></i> &nbsp; Imprimir ticket</button>';
 			?>
 		</p>
 	</div>
