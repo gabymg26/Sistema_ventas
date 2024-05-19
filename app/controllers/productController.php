@@ -342,7 +342,7 @@
 					"campo_valor"=>$marca
 				],
 				[
-					"campo_nombre"=>"producto_proveedor",
+					"campo_nombre"=>"proveedor_id",
 					"campo_marcador"=>":Proveedor",
 					"campo_valor"=>$proveedor
 				],
@@ -411,13 +411,13 @@
 			$pagina = (isset($pagina) && $pagina>0) ? (int) $pagina : 1;
 			$inicio = ($pagina>0) ? (($pagina * $registros)-$registros) : 0;
 
-			$campos="producto.producto_id,producto.producto_codigo,producto.producto_nombre,producto_stock_total,producto.producto_precio_venta,producto.producto_foto,categoria.categoria_nombre,producto.producto_proveedor";
+			$campos="producto.producto_id,producto.producto_codigo,producto.producto_nombre,producto_stock_total,producto.producto_precio_venta,producto.producto_foto,categoria.categoria_nombre";
 
 			if(isset($busqueda) && $busqueda!=""){
 
-				$consulta_datos="SELECT $campos FROM producto INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%' OR producto_marca LIKE '%$busqueda%' OR producto_proveedor LIKE '%$busqueda%' ORDER BY producto_nombre ASC LIMIT $inicio,$registros";
+				$consulta_datos="SELECT $campos FROM producto INNER JOIN categoria ON producto.categoria_id=categoria.categoria_id WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%' OR producto_marca LIKE '%$busqueda%' ORDER BY producto_nombre ASC LIMIT $inicio,$registros";
 
-				$consulta_total="SELECT COUNT(producto_id) FROM producto WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%' OR producto_marca LIKE '%$busqueda%' OR producto_proveedor LIKE '%$busqueda%'";
+				$consulta_total="SELECT COUNT(producto_id) FROM producto WHERE producto_codigo LIKE '%$busqueda%' OR producto_nombre LIKE '%$busqueda%' OR producto_marca LIKE '%$busqueda%'";
 
 			}elseif($categoria>0){
 
@@ -464,7 +464,6 @@
 		                            <strong>PRECIO:</strong> $'.$rows['producto_precio_venta'].', 
 		                            <strong>STOCK:</strong> '.$rows['producto_stock_total'].', 
 		                            <strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].'
-									<strong>PROVEEDOR:</strong> '.$rows['producto_proveedor'].'
 		                        </p>
 		                    </div>
 		                    <div class="has-text-right">
@@ -700,18 +699,19 @@
 			    }
 		    }
 
-		    if($proveedor!=""){
-		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}",$proveedor)){
-			    	$alerta=[
-						"tipo"=>"simple",
-						"titulo"=>"Ocurrió un error inesperado",
-						"texto"=>"El proveedor no coincide con el formato solicitado",
-						"icono"=>"error"
-					];
-					return json_encode($alerta);
-			        exit();
-			    }
-		    }
+		if ($datos['proveedor_id'] != $proveedor) {
+			$check_proveedor = $this->ejecutarConsulta("SELECT proveedor_id FROM proveedores WHERE proveedor_id='$proveedor'");
+			if ($check_proveedor->rowCount() <= 0) {
+				$alerta = [
+					"tipo" => "simple",
+					"titulo" => "Ocurrió un error inesperado",
+					"texto" => "El proveedor seleccionado no existe en el sistema",
+					"icono" => "error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
+		}
 
 		    # Comprobando presentacion del producto #
 			if(!in_array($unidad, PRODUCTO_UNIDAD)){
@@ -858,7 +858,7 @@
 					"campo_valor"=>$marca
 				],
 				[
-					"campo_nombre"=>"producto_proveedor",
+					"campo_nombre"=>"proveedor_id",
 					"campo_marcador"=>":Proveedor",
 					"campo_valor"=>$proveedor
 				],

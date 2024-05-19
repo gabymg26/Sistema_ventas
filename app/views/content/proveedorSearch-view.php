@@ -4,8 +4,7 @@
 </div>
 
 <div class="container pb-6 pt-6">
-    <?php
-    
+    <?php    
         use app\controllers\proveedorController;
         $insProveedor = new proveedorController();
 

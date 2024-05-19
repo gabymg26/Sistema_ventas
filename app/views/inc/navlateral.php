@@ -1,7 +1,7 @@
 <section class="full-width navLateral scroll" id="navLateral">
 	<div class="full-width navLateral-body">
 		<div class="full-width navLateral-body-logo has-text-centered tittles is-uppercase">
-			Sistema de ventas 
+			Sistema de ventas
 		</div>
 		<div class="full-width tittles navLateral-body-tittle-menu has-text-centered is-uppercase">
 			<i class="fas fa-th-large fa-fw"></i> &nbsp;
@@ -376,7 +376,7 @@
 							</a>
 						</li>
 						<li class="full-width">
-							<a href="<?php echo APP_URL."userUpdate/".$_SESSION['id']."/"; ?>" class="full-width">
+							<a href="<?php echo APP_URL . "userUpdate/" . $_SESSION['id'] . "/"; ?>" class="full-width">
 								<div class="navLateral-body-cl">
 									<i class="fas fa-user-tie fa-fw"></i>
 								</div>
@@ -391,7 +391,7 @@
 				<li class="full-width divider-menu-h"></li>
 
 				<li class="full-width mt-5">
-					<a href="<?php echo APP_URL."logOut/"; ?>" class="full-width btn-exit" >
+					<a href="<?php echo APP_URL . "logOut/"; ?>" class="full-width btn-exit">
 						<div class="navLateral-body-cl">
 							<i class="fas fa-power-off"></i>
 						</div>

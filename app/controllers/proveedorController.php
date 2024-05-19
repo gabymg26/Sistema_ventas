@@ -179,7 +179,7 @@
 		                    <th class="has-text-centered">No.</th>
 		                    <th class="has-text-centered">Nombre</th>
 		                    <th class="has-text-centered">Teléfono</th>
-							<th class="has-text-centered">Email</th>
+							          <th class="has-text-centered">Email</th>
 		                    <th class="has-text-centered">Productos</th>
 		                    <th class="has-text-centered">Actualizar</th>
 		                    <th class="has-text-centered">Eliminar</th>
@@ -208,18 +208,19 @@
 			                    </a>
 			                </td>
 			                <td>
+
 			                	<form class="FormularioAjax" action="'.APP_URL.'app/ajax/proveedorAjax.php" method="POST" autocomplete="off" >
 
 			                		<input type="hidden" name="modulo_proveedor" value="eliminar">
 			                		<input type="hidden" name="proveedor_id" value="'.$rows['proveedor_id'].'">
-
-			                    	<button type="submit" class="button is-danger is-rounded is-small">
+			                    <button type="submit" class="button is-danger is-rounded is-small">
 			                    		<i class="far fa-trash-alt fa-fw"></i>
 			                    	</button>
 			                    </form>
 			                </td>
 						</tr>
 					';
+
 					$contador++;
 				}
 				$pag_final=$contador-1;
