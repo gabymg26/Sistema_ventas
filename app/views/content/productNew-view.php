@@ -49,22 +49,22 @@
 					<label>Marca</label>
 					<input class="input" type="text" name="producto_marca" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}" maxlength="30">
 				</div>
-		  	</div>
-		  	<div class="column">
-				<label>Proveedor <?php echo CAMPO_OBLIGATORIO; ?></label><br>
-		    	<div class="select">
-				  	<select name="producto_producto" >
-				    	<option value="" selected="" >Seleccione una opción</option>
-				    	<?php
-                            $datos_proveedores=$insLogin->seleccionarDatos("Normal","proveedor","*",0);
+			</div>
+			<div class="column">
+				<label>Proveedores <?php echo CAMPO_OBLIGATORIO; ?></label><br>
+				<div class="select">
+					<select name="producto_proveedor">
+						<option value="" selected="">Seleccione una opción</option>
+						<?php
+						$datos_proveedor = $insLogin->seleccionarDatos("Normal", "proveedores", "*", 0);
 
-                            $cc=1;
-                            while($campos_proveedor=$datos_proveedores->fetch()){
-                                echo '<option value="'.$campos_proveedor['proveedor_id'].'">'.$cc.' - '.$campos_proveedor['proveedor_nombre'].'</option>';
-                                $cc++;
-                            }
-                        ?>
-				  	</select>
+						$cc = 1;
+						while ($campos_proveedor = $datos_proveedor->fetch()) {
+							echo '<option value="' . $campos_proveedor['proveedor_id'] . '">' . $cc . ' - ' . $campos_proveedor['proveedor_nombre'] . '</option>';
+							$cc++;
+						}
+						?>
+					</select>
 				</div>
 			</div>
 			<div class="column">
@@ -113,8 +113,8 @@
 			</div>
 		</div>
 		<p class="has-text-centered">
-			<button type="reset" class="button is-warning is-light is-rounded"><i class="fas fa-paint-roller"></i> &nbsp; Limpiar</button>
-			<button type="submit" class="button is-success is-rounded"><i class="far fa-save"></i> &nbsp; Guardar</button>
+			<button type="reset" class="button is-link is-light is-rounded"><i class="fas fa-paint-roller"></i> &nbsp; Limpiar</button>
+			<button type="submit" class="button is-info is-rounded"><i class="far fa-save"></i> &nbsp; Guardar</button>
 		</p>
 		<p class="has-text-centered pt-6">
 			<small>Los campos marcados con <?php echo CAMPO_OBLIGATORIO; ?> son obligatorios</small>
