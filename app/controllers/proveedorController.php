@@ -93,7 +93,7 @@
             }
 
 
-		    $proveedor_datos_reg=[
+		    $proveedores_datos_reg=[
 				[
 					"campo_nombre"=>"proveedor_nombre",
 					"campo_marcador"=>":Nombre",
@@ -112,9 +112,9 @@
 				]
 			];
 
-			$registrar_proveedor=$this->guardarDatos("proveedores",$proveedor_datos_reg);
+			$registrar_proveedores=$this->guardarDatos("proveedores",$proveedores_datos_reg);
 
-			if($registrar_proveedor->rowCount()==1){
+			if($registrar_proveedores->rowCount()==1){
 				$alerta=[
 					"tipo"=>"limpiar",
 					"titulo"=>"Proveedor registrado",
@@ -287,9 +287,9 @@
 		        exit();
 		    }
 
-		    $eliminarProveedor=$this->eliminarRegistro("proveedor","proveedor_id",$id);
+		    $eliminarProveedores=$this->eliminarRegistro("proveedores","proveedor_id",$id);
 
-		    if($eliminarProveedor->rowCount()==1){
+		    if($eliminarProveedores->rowCount()==1){
 
 		        $alerta=[
 					"tipo"=>"recargar",
@@ -361,7 +361,7 @@
 		    }
 		
 		    # Verificando nombre #
-		    $check_nombre=$this->ejecutarConsulta("SELECT proveedor_nombre FROM proveedor WHERE proveedor_nombre='$nombre'");
+		    $check_nombre=$this->ejecutarConsulta("SELECT proveedor_nombre FROM proveedores WHERE proveedor_nombre='$nombre'");
 		    if($check_nombre->rowCount()>0){
 		    	$alerta=[
 					"tipo"=>"simple",
@@ -414,7 +414,7 @@
             }
 
 
-		    $proveedor_datos_up=[
+		    $proveedores_datos_up=[
 				[
 					"campo_nombre"=>"proveedor_nombre",
 					"campo_marcador"=>":Nombre",
@@ -439,7 +439,7 @@
 				"condicion_valor"=>$id
 			];
 
-			if($this->actualizarDatos("proveedor",$proveedor_datos_up,$condicion)){
+			if($this->actualizarDatos("proveedor",$proveedores_datos_up,$condicion)){
 				$alerta=[
 					"tipo"=>"recargar",
 					"titulo"=>"Proveedor actualizada",

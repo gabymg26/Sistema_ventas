@@ -10,7 +10,7 @@
 
 		$id=$insLogin->limpiarCadena($url[1]);
 
-		$datos=$insLogin->seleccionarDatos("Unico","proveedor","proveedor_id",$id);
+		$datos=$insLogin->seleccionarDatos("Unico","proveedores","proveedor_id",$id);
 
 		if($datos->rowCount()==1){
 			$datos=$datos->fetch();
