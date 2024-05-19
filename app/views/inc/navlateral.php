@@ -209,7 +209,7 @@
 				<li class="full-width">
 					<a href="#" class="full-width btn-subMenu">
 						<div class="navLateral-body-cl">
-							<i class="fas fa-tags fa-fw"></i>
+							<i class="fas fa-industry fa-fw"></i>
 						</div>
 						<div class="navLateral-body-cr">
 							PROVEEDORES
@@ -220,7 +220,7 @@
 						<li class="full-width">
 							<a href="<?php echo APP_URL; ?>proveedorNew/" class="full-width">
 								<div class="navLateral-body-cl">
-									<i class="fas fa-tag fa-fw"></i>
+									<i class="fas fa-user-tie fa-stack-1x"></i>
 								</div>
 								<div class="navLateral-body-cr">
 									Nuevo Proveedor
@@ -230,7 +230,7 @@
 						<li class="full-width">
 							<a href="<?php echo APP_URL; ?>proveedorList/" class="full-width">
 								<div class="navLateral-body-cl">
-									<i class="fas fa-clipboard-list fa-fw"></i>
+									<i class="fas fa-list fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
 									Lista de proveedores
