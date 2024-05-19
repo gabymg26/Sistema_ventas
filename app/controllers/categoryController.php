@@ -82,7 +82,7 @@
 				$alerta=[
 					"tipo"=>"limpiar",
 					"titulo"=>"Categoría registrada",
-					"texto"=>"La categoría ".$nombre." se registro con exito",
+					"texto"=>"La categoría ".$nombre." se registró con éxito",
 					"icono"=>"success"
 				];
 			}else{

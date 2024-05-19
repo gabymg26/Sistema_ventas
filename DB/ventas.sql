@@ -56,6 +56,20 @@ CREATE TABLE `categoria` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `proveedor_id` int(7) NOT NULL,
+  `proveedor_nombre` varchar(70) COLLATE utf8_spanish2_ci NOT NULL,
+  `proveedor_telefono` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `proveedor_email` varchar(50) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+
+--
 -- Estructura de tabla para la tabla `cliente`
 --
 
@@ -108,10 +122,10 @@ CREATE TABLE `producto` (
   `producto_precio_compra` decimal(30,2) NOT NULL,
   `producto_precio_venta` decimal(30,2) NOT NULL,
   `producto_marca` varchar(35) COLLATE utf8_spanish2_ci NOT NULL,
-  `producto_modelo` varchar(35) COLLATE utf8_spanish2_ci NOT NULL,
   `producto_estado` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `producto_foto` varchar(500) COLLATE utf8_spanish2_ci NOT NULL,
-  `categoria_id` int(7) NOT NULL
+  `categoria_id` int(7) NOT NULL,
+  `proveedor_id` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -190,6 +204,11 @@ ALTER TABLE `caja`
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`categoria_id`);
 
+  -- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD PRIMARY KEY (`proveedor_id`);
+
 --
 -- Indices de la tabla `cliente`
 --
@@ -208,6 +227,7 @@ ALTER TABLE `empresa`
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`producto_id`),
   ADD KEY `categoria_id` (`categoria_id`);
+  ADD KEY `proveedor_id` (`proveedor_id`);
 
 --
 -- Indices de la tabla `usuario`
@@ -249,6 +269,11 @@ ALTER TABLE `caja`
 --
 ALTER TABLE `categoria`
   MODIFY `categoria_id` int(7) NOT NULL AUTO_INCREMENT;
+
+  -- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `proveedor_id` int(7) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
@@ -294,7 +319,9 @@ ALTER TABLE `venta_detalle`
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`categoria_id`);
+  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`categoria_id`),
+  ADD CONSTRAINT `producto_ibfk_3` FOREIGN KEY (`proveedor_id`) REFERENCES `proveedor` (`proveedor_id`);
+
 
 --
 -- Filtros para la tabla `venta`

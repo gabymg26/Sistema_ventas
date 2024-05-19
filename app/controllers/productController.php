@@ -20,6 +20,7 @@
 		    $proveedor=$this->limpiarCadena($_POST['producto_proveedor']);
 		    $unidad=$this->limpiarCadena($_POST['producto_unidad']);
 		    $categoria=$this->limpiarCadena($_POST['producto_categoria']);
+			
 
 		    # Verificando campos obligatorios #
             if($codigo=="" || $nombre=="" || $precio_compra=="" || $precio_venta=="" || $stock==""){
@@ -139,6 +140,19 @@
 				return json_encode($alerta);
 		        exit();
 		    }
+
+			# Verificando proveedor #
+			$check_proveedor=$this->ejecutarConsulta("SELECT proveedor_id FROM proveedor WHERE proveedor_id='$proveedor'");
+			if($check_proveedor->rowCount()<=0){
+				$alerta=[
+					"tipo"=>"simple",
+					"titulo"=>"Ocurrió un error inesperado",
+					"texto"=>"El proveedor seleccionado no existe en el sistema",
+					"icono"=>"error"
+				];
+				return json_encode($alerta);
+				exit();
+			}
 
 		    # Verificando stock total o existencias #
             if($stock<=0){
