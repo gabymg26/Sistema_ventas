@@ -49,22 +49,22 @@
 					<label>Marca</label>
 					<input class="input" type="text" name="producto_marca" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}" maxlength="30">
 				</div>
-			</div>
-			<div class="column">
+		  	</div>
+		  	<div class="column">
 				<label>Proveedor <?php echo CAMPO_OBLIGATORIO; ?></label><br>
-				<div class="select">
-					<select name="producto_proveedor">
-						<option value="" selected="">Seleccione una opción</option>
-						<?php
-						$datos_proveedor = $insLogin->seleccionarDatos("Normal", "proveedores", "*", 0);
+		    	<div class="select">
+				  	<select name="producto_producto" >
+				    	<option value="" selected="" >Seleccione una opción</option>
+				    	<?php
+                            $datos_proveedores=$insLogin->seleccionarDatos("Normal","proveedor","*",0);
 
-						$cc = 1;
-						while ($campos_proveedor = $datos_proveedor->fetch()) {
-							echo '<option value="' . $campos_proveedor['proveedor_id'] . '">' . $cc . ' - ' . $campos_proveedor['proveedor_nombre'] . '</option>';
-							$cc++;
-						}
-						?>
-					</select>
+                            $cc=1;
+                            while($campos_proveedor=$datos_proveedores->fetch()){
+                                echo '<option value="'.$campos_proveedor['proveedor_id'].'">'.$cc.' - '.$campos_proveedor['proveedor_nombre'].'</option>';
+                                $cc++;
+                            }
+                        ?>
+				  	</select>
 				</div>
 			</div>
 			<div class="column">

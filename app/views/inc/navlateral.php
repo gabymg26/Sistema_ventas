@@ -223,7 +223,7 @@
 									<i class="fas fa-tag fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Nuevo proveedor
+									Nuevo Proveedor
 								</div>
 							</a>
 						</li>
