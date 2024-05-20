@@ -208,9 +208,10 @@
 
 			                		<input type="hidden" name="modulo_proveedor" value="eliminar">
 			                		<input type="hidden" name="proveedor_id" value="'.$rows['proveedor_id'].'">
-			                    <button type="submit" class="button is-danger is-rounded is-small">
+			                    	
+									<button type="submit" class="button is-danger is-rounded is-small">
 			                    		<i class="far fa-trash-alt fa-fw"></i>
-			                    	</button>
+									</button>
 			                    </form>
 			                </td>
 						</tr>
