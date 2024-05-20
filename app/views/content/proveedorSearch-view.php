@@ -8,7 +8,7 @@
 
     use app\controllers\proveedorController;
 
-    $insProveedor = new proveedorController();
+    $insProveedores = new proveedorController();
 
     if (!isset($_SESSION[$url[0]]) && empty($_SESSION[$url[0]])) {
     ?>
@@ -22,7 +22,7 @@
                             <input class="input is-rounded" type="text" name="txt_buscador" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" required>
                         </p>
                         <p class="control">
-                            <button class="button is-info" type="submit">Buscar</button>
+                            <button class="button is-success" type="submit">Buscar</button>
                         </p>
                     </div>
                 </form>
@@ -41,7 +41,7 @@
             </div>
         </div>
     <?php
-        echo $insProveedor->listarProveedorControlador($url[1], 15, $url[0], $_SESSION[$url[0]]);
+        echo $insProveedores->listarProveedorControlador($url[1], 15, $url[0], $_SESSION[$url[0]]);
     }
     ?>
 </div>
